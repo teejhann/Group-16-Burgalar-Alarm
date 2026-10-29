@@ -1,1 +1,24 @@
+Working Outline / Requirements
+
+Arduino checks current state from Laptop
+  Alarm armed or not.
+
+Read Sensors 
+  magmetic and pir
+
+Interpret Data
+  is motion being detected? 
+  is window open?
+
+Send to Laptop (Encrypt data)
+  For live updates (i.e. motion front door, window open etc.)
+
+Laptop Hosts all pin stuff
+  entering pin
+  validating pin
+  resetting pin
+
+Facial Recognition using laptop camera
+  github repo for that: https://github.com/andresbeltranc/ir_camera_sample_win32
+
 
