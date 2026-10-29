@@ -1,0 +1,61 @@
+FACE AUTH - COMMANDS CHEAT SHEET
+================================
+
+FIRST TIME SETUP (run once, inside your project folder)
+-------------------------------------------------------
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+
+
+EVERY TIME YOU OPEN A NEW TERMINAL
+----------------------------------
+venv\Scripts\activate
+
+
+CHECK CAMERAS
+-------------
+python face_auth.py cameras
+
+  - Look for a line with kind=INFRARED (that's the IR camera)
+  - "OpenCV indices" shows the numbers to use with --rgb
+
+
+ADD A FACE
+----------
+python face_auth.py --rgb 1 enroll yourname
+
+  - Look at the camera and slowly move your head until it hits 20/20
+  - Use a different name for each person
+
+
+RECOGNISE FACES
+---------------
+python face_auth.py --rgb 1 recognize
+
+  - Shows each person's match %
+  - Press Q to quit
+
+
+MANAGE FACES
+------------
+python face_auth.py list                 (show who's enrolled)
+python face_auth.py delete yourname      (remove someone)
+
+
+CAMERA OPTIONS
+--------------
+--rgb 0     use camera 0 as the normal webcam
+--rgb 1     use camera 1 (try this if Iriun Webcam gets picked)
+--rgb 2     use camera 2
+--rgb -1    IR camera only, no normal webcam
+
+  Put --rgb BEFORE the command, e.g.:
+  python face_auth.py --rgb 2 recognize
+
+
+IF IRIUN WEBCAM KEEPS GETTING USED
+----------------------------------
+1. Quit Iriun from the system tray, or
+2. Device Manager > Cameras > right-click Iriun Webcam > Disable device
+Then delete and re-enroll anyone added while Iriun was being used.
